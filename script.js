@@ -97,7 +97,15 @@ form?.addEventListener('submit', async (e) => {
     const img = buttons[current].querySelector('img');
     const title = card?.querySelector('figcaption strong')?.textContent || '';
     const desc = card?.querySelector('figcaption span')?.textContent || '';
-    lbImg.src = img.currentSrc || img.src;
+    const fallback = img.currentSrc || img.src;
+    const full = img.dataset.full || fallback;
+    lbImg.onerror = () => {
+      if (lbImg.src !== fallback) {
+        lbImg.onerror = null;
+        lbImg.src = fallback;
+      }
+    };
+    lbImg.src = full;
     lbImg.alt = img.alt || 'Photo Sarah Traiteur';
     caption.textContent = [title, desc].filter(Boolean).join(' — ');
   };

@@ -269,3 +269,48 @@ img{height:auto}
   }
   #galerie .gallery-open::after{opacity:1}
 }
+
+
+/* Correction galerie : aucune bande blanche sur les vignettes */
+#galerie .gallery-card{
+  background:#1a120e;
+  border:none;
+}
+#galerie .gallery-open{
+  background:#1a120e !important;
+  aspect-ratio:4/3;
+}
+#galerie .gallery-open img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center;
+  background:transparent !important;
+  display:block;
+}
+#galerie .gallery-card figcaption{
+  background:#fff;
+}
+@media (max-width:560px){
+  #galerie .gallery-open{
+    aspect-ratio:4/3;
+  }
+  #galerie .gallery-open img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+}
+
+/* En grand : afficher la photo entière sans recadrage */
+.sarah-lightbox{
+  background:rgba(8,6,5,.97);
+}
+.sarah-lightbox img{
+  object-fit:contain !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:94vw !important;
+  max-height:88vh !important;
+  background:transparent !important;
+}

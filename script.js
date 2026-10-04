@@ -46,7 +46,7 @@ form?.addEventListener('submit', async (e) => {
   status.textContent = 'Envoi de votre demande…';
 
   try {
-    const response = await fetch('https://formsubmit.co/ajax/sarah.traiteur.be@gmail.com', {
+    const response = await fetch('https://formsubmit.co/ajax/jaafar250594@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ form?.addEventListener('submit', async (e) => {
     status.textContent = 'Merci. Votre demande a bien été envoyée à Sarah Traiteur.';
     status.classList.add('success');
   } catch (error) {
-    status.textContent = 'Une erreur est survenue. Vous pouvez aussi nous écrire directement à sarah.traiteur.be@gmail.com.';
+    status.textContent = 'Une erreur est survenue. Vous pouvez aussi nous écrire directement à jaafar250594@gmail.com.';
     status.classList.remove('success');
   } finally {
     submitButton.disabled = false;

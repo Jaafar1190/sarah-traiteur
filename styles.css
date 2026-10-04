@@ -176,3 +176,96 @@ img{height:auto}
   .quote-form{padding:20px 15px}
   .footer-bottom{gap:14px}
 }
+
+
+/* Galerie — ajustement visuel + lightbox haute qualité */
+#galerie .gallery-grid{
+  align-items:stretch;
+}
+#galerie .gallery-card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+#galerie .gallery-open{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#f2ece3;
+}
+#galerie .gallery-open::after{
+  content:"↗";
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(24,16,11,.72);
+  color:#fff;
+  font-size:16px;
+  opacity:0;
+  transform:translateY(4px);
+  transition:.22s ease;
+  pointer-events:none;
+}
+#galerie .gallery-card:hover .gallery-open::after{
+  opacity:1;
+  transform:translateY(0);
+}
+#galerie .gallery-open img{
+  width:100%;
+  height:100%;
+  max-width:100%;
+  object-fit:contain !important;
+  object-position:center;
+  background:#f2ece3;
+  image-rendering:auto;
+}
+#galerie .gallery-card figcaption{
+  flex:1;
+}
+.sarah-lightbox{
+  padding:78px 72px 78px;
+}
+.sarah-lightbox img{
+  display:block;
+  width:auto !important;
+  height:auto !important;
+  max-width:min(92vw,1400px) !important;
+  max-height:calc(100vh - 170px) !important;
+  object-fit:contain !important;
+  image-rendering:auto;
+  background:#111;
+}
+.lightbox-caption{
+  bottom:20px;
+  max-width:900px;
+}
+@media (max-width:820px){
+  #galerie .gallery-open{aspect-ratio:4/3}
+  .sarah-lightbox{padding:64px 12px 76px}
+  .sarah-lightbox img{
+    max-width:calc(100vw - 24px) !important;
+    max-height:calc(100vh - 150px) !important;
+  }
+}
+@media (max-width:560px){
+  #galerie .gallery-open{
+    aspect-ratio:auto;
+    min-height:0;
+  }
+  #galerie .gallery-open img{
+    width:100%;
+    height:auto;
+    max-height:none;
+    object-fit:contain !important;
+  }
+  #galerie .gallery-open::after{opacity:1}
+}
